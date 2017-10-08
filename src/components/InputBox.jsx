@@ -17,10 +17,12 @@ class InputBox extends React.Component {
 
   render() {
     return (
-      <div>
-        <input className="form-control form-control-lg"
-          value={this.state.value} active
-          type="text" placeholder="Type Here" onChange={this.handleChange} />
+      <div className="field">
+        <div className="control">
+          <input className="input"
+            value={this.state.value}
+            type="text" placeholder="Type Here" onChange={this.handleChange} />
+        </div>
       </div>
     );
   }

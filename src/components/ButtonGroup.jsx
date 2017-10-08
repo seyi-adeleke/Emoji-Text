@@ -5,7 +5,6 @@ class ButtonGoup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      class: 'btn btn-secondary',
     };
     this.handleEmojiChange = this.handleEmojiChange.bind(this);
   }
@@ -21,18 +20,21 @@ class ButtonGoup extends React.Component {
 
 
   render() {
-    const emojis = ['😂', '😘', '😢', '🙈', '✊', '⚡', '💓', '💦'];
+    const emojis = ['😂', '😘', '😢', '🙈', '✊', '⚡', '💓', '💦', '💅', '🔪', '🔥', '🖕'];
     return (
-        <div className="btn-group" data-toggle="buttons">
-            {emojis.map((emoji, index) => {
-              return <label key={index} id={index}
-              className={this.state.class}>
-                         <input type="radio"
-                         value={emoji}
-                         onClick={this.handleEmojiChange} />{emoji}
-                    </label>;
-            })}
-        </div>
+      <div className="field is-grouped is-grouped-multiline">
+        {
+          emojis.map((emoji, index) => {
+            return <p className="control" key={index}>
+                      <button className="button"
+                      value={emoji}
+                      onClick={this.handleEmojiChange}>
+                      {emoji}
+                     </button>
+                  </p>;
+          })
+        }
+      </div>
     );
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import InputBox from './InputBox.jsx';
 import TextBox from './TextBox.jsx';
 import ButtonGroup from './ButtonGroup.jsx';
-import PropTypes from 'prop-types';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 class Body extends React.Component {
   constructor(props) {
@@ -24,17 +24,23 @@ class Body extends React.Component {
     });
   }
 
+  createEmojiText(text, emoji) {
+    const textArray = text.replace(/\s+/, ' ').split(' ');
+    const emojiText = textArray.join(` ${emoji} `);
+    return emojiText;
+  }
+
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col align-self-center">
-              <h1 className="text-center">Hello world</h1>
-              <InputBox getInput={this.handleInput} />
-              <TextBox getText={this.state.text} emoji={this.state.emoji}/>
-              <ButtonGroup getEmoji={this.handleEmoji}/>
-          </div>
-        </div>
+      <div className="columns">
+        <div className="column is-half is-offset-one-quarter has-text-centered is-size-1-desktop is-size-1-mobile">
+            <h1 className="has-text-weight-bold">
+              Emoji Text
+            </h1>
+            <InputBox getInput={this.handleInput} />
+            <TextBox getText={this.createEmojiText(this.state.text, this.state.emoji)}/>
+            <ButtonGroup getEmoji={this.handleEmoji}/>
+         </div>
       </div>
     );
   }

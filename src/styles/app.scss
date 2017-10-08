@@ -1,6 +1,16 @@
 body {
     background-color: white;
 }
-label.btn.btn-secondary + input[type="radio"]:checked{
-    background-color: red !important;
+.button {
+    padding-right: .65em;
+}
+.active {
+    background-color:green; 
+}
+.copy{
+    margin-top: 30px;
+    margin-right: 10px;
+}
+.customButtons{
+    margin-left: 100px;
 }

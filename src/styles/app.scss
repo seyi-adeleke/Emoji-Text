@@ -1,0 +1,6 @@
+body {
+    background-color: white;
+}
+label.btn.btn-secondary + input[type="radio"]:checked{
+    background-color: red !important;
+}

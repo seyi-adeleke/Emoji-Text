@@ -4,6 +4,12 @@ body {
 .button {
     padding-right: .65em;
 }
+.button:hover {
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid black !important;
+}
+
 .active {
     background-color:green; 
 }
@@ -13,4 +19,14 @@ body {
 }
 .customButtons{
     margin-left: 100px;
+}
+
+.confirm {
+    background-color:#00d1b2 !important;
+}
+.confirm:hover {
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid black !important;
+    
 }

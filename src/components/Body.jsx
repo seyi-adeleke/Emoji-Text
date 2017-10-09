@@ -2,7 +2,6 @@ import React from 'react';
 import InputBox from './InputBox.jsx';
 import TextBox from './TextBox.jsx';
 import ButtonGroup from './ButtonGroup.jsx';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 class Body extends React.Component {
   constructor(props) {
@@ -34,13 +33,13 @@ class Body extends React.Component {
     return (
       <div className="columns">
         <div className="column is-half is-offset-one-quarter has-text-centered is-size-1-desktop is-size-1-mobile">
-            <h1 className="has-text-weight-bold">
-              Emoji Text
+          <h1 className="has-text-weight-bold">
+            Emoji Text
             </h1>
-            <InputBox getInput={this.handleInput} />
-            <TextBox getText={this.createEmojiText(this.state.text, this.state.emoji)}/>
-            <ButtonGroup getEmoji={this.handleEmoji}/>
-         </div>
+          <InputBox getInput={this.handleInput} />
+          <TextBox getText={this.createEmojiText(this.state.text, this.state.emoji)} />
+          <ButtonGroup getEmoji={this.handleEmoji} />
+        </div>
       </div>
     );
   }

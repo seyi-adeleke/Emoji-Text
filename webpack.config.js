@@ -38,11 +38,12 @@ module.exports = {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           use: 'css-loader!sass-loader',
-        }),
+        })
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader',
+        options: { minimize: true }
       },
       {
         test: /\.js$/,

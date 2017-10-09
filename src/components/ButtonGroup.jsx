@@ -22,7 +22,7 @@ class ButtonGoup extends React.Component {
   render() {
     const emojis = ['😂', '😘', '😢', '🙈', '✊', '⚡', '💓', '💦', '💅', '🔪', '🔥', '🖕'];
     return (
-      <div className="field is-grouped is-grouped-multiline">
+      <div className="field is-grouped is-grouped-multiline has-text-centered">
         {
           emojis.map((emoji, index) => {
             return <p className="control" key={index}>

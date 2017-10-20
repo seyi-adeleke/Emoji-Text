@@ -10,22 +10,28 @@ class TextBox extends React.Component {
       copied: false
     };
     this.handleCopy = this.handleCopy.bind(this);
-    this.setActivity = this.setActivity.bind(this);
+    this.tweeterShare = this.tweeterShare.bind(this);
+    this.validateText = this.validateText.bind(this);
+  }
+  tweeterShare() {
+    if (this.validateText(this.props.getText)) {
+      window.open(`https://twitter.com/intent/tweet?text=${this.props.getText} – http://emojiText.cc`);
+    }
+  }
+
+  validateText(text) {
+    if (text.length === 0) {
+      return false;
+    }
+    return true;
   }
 
   handleCopy() {
-    if (this.props.getText.length === 0) {
-      return;
+    if (this.validateText(this.props.getText)) {
+      this.setState({
+        show: true
+      });
     }
-    this.setState({
-      show: true
-    });
-  }
-
-  setActivity() {
-    this.setState({
-      copied: true
-    });
   }
 
   render() {
@@ -35,33 +41,28 @@ class TextBox extends React.Component {
           <textarea className="textarea"
             value={this.props.getText}
             type="text" placeholder="Copy Me"
-            onChange={this.setActivity}
           />
           <SweetAlert
-           show={this.state.show}
-           title="Emoji Text"
-           text="Copied"
-           onConfirm={() => this.setState({ show: false })}
-           onOutsideClick={() => this.setState({ show: false })}
+            show={this.state.show}
+            title="Emoji Text"
+            text="Copied"
+            onConfirm={() => this.setState({ show: false })}
+            onOutsideClick={() => this.setState({ show: false })}
           />
           <div className="has-text-centered">
-          <CopyToClipboard text={this.props.getText}>
+            <CopyToClipboard text={this.props.getText}>
+              <button className="button is-primary is-outlined copy"
+                onClick={this.handleCopy}>Copy</button>
+            </CopyToClipboard>
             <button className="button is-primary is-outlined copy"
-            onClick={this.handleCopy}>Copy</button>
-          </CopyToClipboard>
-          <button className="button is-primary is-outlined copy">
-            <span className="icon">
-              <i className="fa fa-twitter"/>
-            </span>
-            <span>Twitter</span>
-          </button>
-          <button className="button is-primary is-outlined copy">
-            <span className="icon">
-              <i className="fa fa-facebook"/>
-            </span>
-            <span>Facebook</span>
-          </button>
-         </div>
+              onClick={this.tweeterShare}
+            >
+              <span className="icon">
+                <i className="fa fa-twitter" />
+              </span>
+              <span>Share on Twitter</span>
+            </button>
+          </div>
         </div>
       </div>
     );

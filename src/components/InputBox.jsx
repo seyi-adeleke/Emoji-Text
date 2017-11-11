@@ -29,7 +29,7 @@ class InputBox extends React.Component {
 }
 
 InputBox.propTypes = {
-  getInput: PropTypes.string
+  getInput: PropTypes.function
 };
 
 export default InputBox;

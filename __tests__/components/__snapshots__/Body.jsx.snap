@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Body Component should match the Body snapshot 1`] = `
+<div
+  className="columns"
+>
+  <div
+    className="column is-half is-offset-one-quarter has-text-centered is-size-1-desktop is-size-1-mobile"
+  >
+    <h1
+      className="has-text-weight-bold"
+    >
+      Emoji Text
+    </h1>
+    <InputBox
+      getInput={[Function]}
+    />
+    <TextBox
+      getText=""
+    />
+    <ButtonGoup
+      getEmoji={[Function]}
+    />
+  </div>
+</div>
+`;

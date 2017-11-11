@@ -11,7 +11,6 @@ class ButtonGoup extends React.Component {
 
 
   handleEmojiChange(event) {
-    event.preventDefault();
     this.props.getEmoji(event.target.value);
     this.setState({
       emoji: event.target.value,
@@ -42,6 +41,5 @@ class ButtonGoup extends React.Component {
 ButtonGoup.propTypes = {
   getEmoji: PropTypes.string
 };
-
 
 export default ButtonGoup;

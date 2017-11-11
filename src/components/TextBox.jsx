@@ -12,6 +12,7 @@ class TextBox extends React.Component {
     this.handleCopy = this.handleCopy.bind(this);
     this.tweeterShare = this.tweeterShare.bind(this);
     this.validateText = this.validateText.bind(this);
+    this.confirmCopy = this.confirmCopy.bind(this);
   }
   tweeterShare() {
     if (this.validateText(this.props.getText)) {
@@ -34,6 +35,12 @@ class TextBox extends React.Component {
     }
   }
 
+  confirmCopy() {
+    this.setState({
+      show: false
+    });
+  }
+
   render() {
     return (
       <div className="field">
@@ -46,8 +53,8 @@ class TextBox extends React.Component {
             show={this.state.show}
             title="Emoji Text"
             text="Copied"
-            onConfirm={() => this.setState({ show: false })}
-            onOutsideClick={() => this.setState({ show: false })}
+            onConfirm={this.confirmCopy}
+            onOutsideClick={this.confirmCopy}
           />
           <div className="has-text-centered">
             <CopyToClipboard text={this.props.getText}>

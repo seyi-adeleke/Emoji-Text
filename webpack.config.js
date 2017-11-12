@@ -1,13 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin');
 
-// const env = require('node-env-file');
 
 const webpack = require('webpack');
 
-// env(__dirname + '/.env');
 
 const port = 8080;
 
@@ -66,7 +63,6 @@ module.exports = {
     port,
   },
   plugins: [
-    new DashboardPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     HtmlWebpackPluginConfig,
     new ExtractTextPlugin('public/bundle.css'),
